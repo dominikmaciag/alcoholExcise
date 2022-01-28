@@ -1,0 +1,204 @@
+<!DOCTYPE HTML>
+<html lang="pl-PL">
+
+<head>
+	<title>Kalkulator opłat za zewolenie na sprzedaż napojów alkoholowych</title>
+	<link type="text/css" rel="stylesheet" href="css/style.css">
+	<link type="text/css" rel="stylesheet" href="css/jquery-ui.css">
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+</head>
+
+
+<body>
+	<div id="wraper">
+		<div class="page-caption">
+			<h3>Kalkulator opłat za zezwolenie<br> na sprzedaż napojów alkoholowych</h3>
+		</div>
+		<p>Wybierz odpowiednie kategorie zezwoleń i wprowadź dane do formularzy</p>
+		<hr>
+
+		<div class="categorySection">
+			<label class="custbox">
+				<input type="checkbox" id="cb_c0" autocomplete="off" onclick="openForm(0);">
+				<span class="checkmark1">A</span>
+				<div class="categoryCaption1">»&nbsp;Napoje zawierające do <strong>4,5% alkoholu</strong> oraz
+					<strong>piwa</strong></div>
+			</label>
+			<div class="secFormWrap" id="sect_c0" style="display: none;">
+				<div class="controls-box">
+					<label class="form-label">Data początkowa ważności zezwolenia:</label>
+					<div class="form-input"><input id="begDate_c0" type="date" size="12" min="2022-01-01"
+							max="2022-12-31">
+					</div>
+				</div>
+				<div class="controls-box">
+					<label class="form-label">Data końcowa ważności zezwolenia:</label>
+					<div class="form-input"><input id="endDate_c0" type="date" size="12" min="2022-01-01"
+							max="2022-12-31">
+					</div>
+				</div>
+				<div class="controls-box">
+					<label class="form-label">Wartość sprzedaży w roku 2021:</label>
+					<div class="form-input"><input id="incomeVal_c0" size="12" style="text-align:right;" type="number"
+							oninput='input(this)'>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="categorySection">
+			<label class="custbox">
+				<input type="checkbox" id="cb_c1" name="cbCategory1" autocomplete="off" onclick="openForm(1);">
+				<span class="checkmark1">B</span>
+				<div class="categoryCaption1">»&nbsp;Napoje zawierające powyżej <strong>4,5% do 18% alkoholu</strong> (z
+					wyjątkiem piwa)</div>
+			</label>
+			<div class="secFormWrap" id="sect_c1" style="display: none;">
+				<div class="controls-box">
+					<label class="form-label">Data początkowa ważności zezwolenia:</label>
+					<div class="form-input"><input id="begDate_c1" name="begDate1" type="date" size="12" value=""
+							min="2022-01-01" max="2022-12-31">
+					</div>
+				</div>
+				<div class="controls-box">
+					<label class="form-label">Data końcowa ważności zezwolenia:</label>
+					<div class="form-input"><input id="endDate_c1" name="endDate1" type="date" size="12" value=""
+							disabled="" min="2022-01-01" max="2022-12-31">
+					</div>
+				</div>
+				<div class="controls-box">
+					<label class="form-label">Wartość sprzedaży w roku 2021:</label>
+					<div class="form-input"><input id="incomeVal_c1" name="incomeVal1" size="12"
+							style="text-align:right;" type="number" oninput='input(this)'>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="modal-2" class="printableArea">
+			<div class="categorySection">
+				<label class="custbox">
+					<input type="checkbox" id="cb_c2" name="cbCategory2" autocomplete="off" onclick="openForm(2);">
+					<span class="checkmark1">C</span>
+					<div class="categoryCaption1">»&nbsp;Napoje zawierające powyżej <strong>18% alkoholu</strong></div>
+				</label>
+				<div class="secFormWrap" id="sect_c2" style="display: none;">
+					<div class="controls-box">
+						<label class="form-label">Data początkowa ważności zezwolenia:</label>
+						<div class="form-input"><input id="begDate_c2" type="date" size="12" min="2022-01-01"
+								max="2022-12-31">
+						</div>
+					</div>
+					<div class="controls-box">
+						<label class="form-label">Data końcowa ważności zezwolenia:</label>
+						<div class="form-input"><input id="endDate_c2" type="date" size="12" min="2022-01-01"
+								max="2022-12-31">
+						</div>
+					</div>
+
+					<div class="controls-box">
+						<label class="form-label">Wartość sprzedaży w roku 2021:</label>
+						<div class="form-input"><input id="incomeVal_c2" size="12" style="text-align:right;"
+								type="number" oninput='input(this)'>
+						</div>
+					</div>
+				</div>
+				<div class="form-nav-bar">
+					<hr>
+					<input class="submitBtn" type="button" id="btSend1" value="Oblicz opłatę">
+				</div>
+
+
+
+				<h3 class="sectionHeader">Dane wnioskowanych zezwoleń</h3>
+				<div style="overflow-x:auto;">
+					<table class="resTbl">
+						<colgroup>
+							<col style="width:43%;" />
+							<col>
+							<col>
+							<col>
+							<col>
+						</colgroup>
+						<tr>
+							<th>Kategoria</th>
+							<th>Przychód <br />w 2021r.</th>
+							<th>Okres<br />obowiązywania</th>
+							<th>Dni</th>
+							<th>Wartość<br />opłaty</th>
+						</tr>
+						<tr>
+							<td><strong>Kategoria A</strong><br />Napoje zawierające do <strong>4,5% alkoholu</strong>
+								oraz <strong>piwa</strong></td>
+							<td style="text-align:right;" id="resultOne"></td>
+							<td class="infoDate"></td>
+							<td class="days"></td>
+							<td style="text-align:right;"><span class="resultFinall"></span></td>
+						</tr>
+
+						<tr class="sum-row">
+							<td colspan="4" style="text-align:right;">RAZEM: </td>
+							<td style="text-align:right;"><strong class="resultFinall"></strong></td>
+						</tr>
+
+					</table>
+				</div>
+
+
+
+				<h3 class="sectionHeader">Płatność w ratach</h3>
+				<div style="overflow-x:auto;">
+					<table class="resTbl" cellpadding="5" cellspacing="0">
+						<colgroup>
+							<col>
+							<col style="width:19%;" />
+							<col style="width:19%;" />
+							<col style="width:19%;" />
+						</colgroup>
+						<tr>
+							<th>Kategoria</th>
+							<th>Rata I</th>
+							<th>Rata II</th>
+							<th>Rata III</th>
+						</tr>
+
+
+						<tr>
+							<td rowspan="2"><strong>Kategoria A</strong><br />Napoje zawierające do <strong>4,5%
+									alkoholu</strong> oraz <strong>piwa</strong></td>
+							<td class="rateDateCell">
+								<div class="rateDate">31 stycznia</div>
+							</td>
+							<td class="rateDateCell"><span class="rateDate">31 maja</span></td>
+							<td class="rateDateCell">
+								<div class="rateDate">30 września</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="currCell"><span class="installmentOne"></span></td>
+							<td class="currCell"><span class="installmentOne"></span></td>
+							<td class="currCell"><span class="installmentOne"></span></td>
+						</tr>
+
+						<tr class="sum-row">
+							<td class="installmentOne">RAZEM: </td>
+							<td class="installmentOne"></td>
+							<td class="installmentOne"></td>
+							<td class="installmentOne"></td>
+						</tr>
+					</table>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>

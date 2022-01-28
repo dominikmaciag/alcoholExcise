@@ -1,0 +1,374 @@
+* {
+	box-sizing:border-box !important;
+}
+html {
+	font-family:arial;
+	font-size:14px;
+}
+
+p {
+	font-size:0.9rem;
+}
+
+hr {
+	height:1px;
+	border:none;
+	background:#ddd;
+	margin:10px 0;
+}
+.page-caption {
+	background:#ffffee;
+	padding:0;
+	margin:0 -20px;
+	overflow:auto;
+	border-bottom:solid #eeeedd 1px;
+}
+
+.page-caption h3  {
+	font-size:1.5rem;
+	text-align:center;
+	padding:0;
+	margin:5px 0;
+}
+
+
+.installmentOne {
+	text-align:right;
+}
+
+.row::before {
+	content:" ";
+	display:block;
+	clear:both;
+}
+
+#wraper {
+	width:100%;
+	background:#fff;
+	/*background: linear-gradient(0deg, rgba(112,166,0,1) 0%, rgba(255,238,0,1) 80%, rgba(255,238,0,1) 100%);*/
+}
+
+.categorySection {
+	padding:0;
+	margin:17px 5px; 
+}
+
+.secFormWrap {
+	border:solid #ddd 1px;
+	border-radius:0 0 5px 5px;
+	-webkit-border-radius: 0 0 5px 5px; 
+	-moz-border-radius: 0 0 5px 5px; 
+	padding:10px 10px;
+	margin:0;
+	background:#ffe;
+}
+
+.form-nav-bar {
+	margin:10px 0 50px 0;
+}
+
+.submitBtn {
+	font-size:1.3rem;
+	padding:6px 20px;
+	border:solid #999 1px;
+	border-radius:5px;
+	cursor:pointer;
+}
+
+.submitBtn:hover {
+	background:#900;
+	color:#fff;
+}
+
+
+/* -------------------- result view ------------------------- */
+
+.clause {
+	font-size:0.8rem;
+}
+
+.sectionHeader {
+	font-size:1.05rem;
+	font-weight:normal;
+	color:#900;
+	border-bottom:solid #ddd 1px;
+	margin:15px 3px 4px 5px;
+}
+
+.client-data-section {
+	margin: 0 0 15px 0;
+	border:solid #ddd 1px;
+	border-radius:5px;
+}
+
+.client-data-section legend {
+	color:#900;
+	font-size:1.05rem;
+	/*font-weight:bold;*/
+	
+}
+
+
+
+.resTbl {
+	width:100%;
+	min-width:500px;
+	font-size:0.95rem;
+	border-collapse:collapse;
+	border:solid #555 2px;
+	margin:15px 0 20px 0;
+}
+.resTbl th {
+	font-size:0.8rem;
+	background:#f5f5f5;
+	border-bottom:solid #555 2px;
+}
+.resTbl td {
+	text-align:right;
+	border:solid #888 1px;
+}
+
+.grNum {
+	font-size:1.1em;
+	font-weight:bold;
+	color:#060;
+}
+
+.rateDate {
+	margin:0;
+	font-size:0.9em;
+	color:#900;
+	font-style:italic;
+}
+
+.rateDateCell {
+	border-bottom:none !important;
+	vertical-align:top;
+}
+.currCell {
+	border-top:none !important;
+}
+
+.sum-row td {
+	font-size:1.1rem;
+	/*font-weight:bold;*/
+	border-top:solid #000 2px;
+	background:#E3F1FF;
+}
+
+
+.button {
+	display:inline-block;
+	color:#000;
+	font-size:1.3rem;
+	line-height:1.25;
+	text-decoration: none;
+	background-color: #EEEEEE;
+	padding:6px 10px;
+	border:solid #999 1px;
+	border-radius:5px;
+}
+
+.button:hover {
+	background:#900;
+	color:#fff;
+}
+
+/* ----------------- end of result view ------------------------- */
+
+
+.custbox {
+	display: block;
+	position: relative;
+	padding:0;
+	padding-left: 60px;
+	/*margin-bottom: 12px;*/
+	height:50px;
+	border:solid #900 1px;
+	border-radius:5px 5px 5px 5px;
+	background:#E3F1FF;
+	cursor: pointer;
+	font-size: 14px;
+	line-height:normal; /*16px;*/
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	box-shadow: 0 0 3px 3px #ddd;
+	overflow: hidden;
+}
+
+.custbox:before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	height: 100%;
+}
+
+.custbox input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+.checkmark1 {
+	position: absolute;
+	display:inline-block;
+	padding:0;
+	top: 0px;
+	left: 0px;
+	height: 100%; /*40px;*/
+	width: 50px;
+	border:solid #fff 2px;
+	/*border-right:solid #000 1px;*/
+	border-radius:5px 0 0 5px;
+	background-color: #c1d6ae;/*#7f9378; #a4c09b; #a1b899; #ddd;*/
+	text-align: center;
+	vertical-align:middle;
+	font-size:2.6rem;
+	line-height:3.2rem;
+	font-weight:bold;
+	color:#555;
+}
+
+.custbox input:checked ~ .checkmark1 {
+	background-color: #92df76; /*#4eca5e;*/
+	border:solid #fff 2px;
+	color:#000;
+	border-left:solid #fe510a 4px;
+	left:2px;
+	width:50px;
+}
+
+.checkmark1:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+.checkmark1:before {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+.custbox .checkmark1:before {
+	left: 10px;
+	top: 0px;
+	width: 14px;
+	height: 24px;
+	border: solid #fff;
+	border-width: 0 5px 5px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+} 
+
+ .categoryCaption1 {
+	display:inline-block;
+	width:93%;
+	/*height:35px;*/
+	font-size:1.1rem;
+	margin-left:0;
+	line-height:18px;
+	/*text-align:center;*/
+	vertical-align:middle;
+	/*background:#eee;*/
+}
+
+.controls-box {
+	display:inline-block;
+	min-width: 250px;
+	/*width:49%;*/
+	vertical-align:top;
+	margin-bottom:10px;
+	margin-right:10px;
+	/*border:solid #ddd 1px;*/
+}
+
+.form-input {
+	display:block;
+	margin-top:4px;
+}
+
+.controls-box label {
+	font-size:1.0rem;
+}
+
+.controls-box input[type="text"] {
+	font-size:1.4rem;
+}
+
+
+
+/* ------ 720 ---------------------------------------------------------------*/
+
+
+@media (min-width: 720px) {
+	html {
+		font-size:16px;
+	}
+	#wraper {
+		width:680px;
+		padding:0 20px 20px 20px;
+		margin:0 auto;
+		border:solid #ddd 1px;
+		border-radius:15px;
+	}
+	.custbox {
+		font-size: 12px;
+		height:42px;
+		padding-left: 52px;
+		line-height:24px;
+
+	}
+
+	.custbox input:checked ~ .checkmark1 {
+		border-left:solid #fe510a 4px;
+		left:2px;
+		width:44px;
+	}
+
+	.submitBtn {
+		font-size:0.9rem;
+		padding:6px 10px;
+		border-radius:5px;
+		cursor:pointer;
+	}
+
+	.categoryCaption1 {
+		display:inline-block;
+		width:93%;
+		/*height:100%;*/
+		font-size:1.0rem;
+		margin-left:0;
+		line-height:18px;
+		text-align:left;
+		vertical-align:middle;
+		/*background:#eee;*/
+	}
+	.checkmark1 {
+		width: 43px; /*36px;*/
+		border:solid #fff 2px;
+		/*border-right:solid #000 1px;*/
+		border-radius:5px 0 0 5px;
+		/*background-color: #ddd;*/
+		text-align: center;
+		/*vertical-align:middle;*/
+		font-size:1.9rem;
+		line-height:2.2rem;
+		font-weight:bold;
+		/*color:#888;*/
+	}
+	
+	.controls-box {
+		width:270px;
+	}
+	.controls-box label {
+		font-size:0.9rem;
+	}
+	.controls-box input[type="text"] {
+		font-size:0.9rem;
+	}
+}
