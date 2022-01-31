@@ -1,5 +1,15 @@
 const dtNow = new Date();
 
+let delayTimer;
+
+function input(ele) {
+    clearTimeout(delayTimer);
+    delayTimer = setTimeout(function () {
+        ele.value = parseFloat(ele.value).toFixed(2).toString();
+    }, 800);
+}
+
+
 function setup() {
     for (var i = 0; i < 3; i++) {
         if (document.getElementById("cb_c" + i).checked) {
@@ -49,7 +59,7 @@ function initForm(n) {
 
 
 function openForm(n) {
-    var cb = document.getElementById('cb_c' + n);
+    const cb = document.getElementById('cb_c' + n);
     if (cb.checked) {
         initForm(n);
         enableForm(n);
@@ -72,7 +82,9 @@ const btn = document.getElementById("btSend");
 const constantValue1 = 37500.00;
 const constantValue2 = 77000.00;
 const baseAmount1 = 0.014;
+const baseAmount1zl = 525.00;
 const baseAmount2 = 0.027;
+const baseAmount2zl = 2100.00;
 const numberOfDaysYear = 365;
 
 
@@ -97,13 +109,13 @@ btn.addEventListener("click", function () {
     );
 
 
+
+
     if (enterSold.value > constantValue1 && sumDays === numberOfDaysYear) {
         // for the last penny...nana na
         let divisibility = (enterSold.value * parseFloat(baseAmount1) / 3).toFixed(2);
         let twoInstallments = parseFloat(divisibility) + parseFloat(divisibility);
         let globalSumPenny = (enterSold.value * parseFloat(baseAmount1) - parseFloat(twoInstallments)).toFixed(2);
-
-
         resultSold.innerHTML = (enterSold.value);
 
         const resultFinall = document.querySelectorAll(".show-sum-finall");
@@ -116,7 +128,6 @@ btn.addEventListener("click", function () {
         for (let i = 0; i < installment.length; i++) {
             installment[i].innerHTML = ((enterSold.value * parseFloat(baseAmount1)) / 3).toFixed(2);
         }
-
 
         const installmentPenny = document.querySelectorAll(".installment-one-penny");
         for (let i = 0; i < installmentPenny.length; i++) {
@@ -155,8 +166,36 @@ btn.addEventListener("click", function () {
 
 
     } else if (enterSold.value < constantValue1 && sumDays < numberOfDaysYear) {
+        resultSold.innerHTML = (enterSold.value);
 
-        console.log("Mniej niż bazowa, mniej niz 365 dni");
+
+        const resultFinall = document.querySelectorAll(".show-sum-finall");
+        const calculate = baseAmount1zl / numberOfDaysYear;
+        const calculateFinal = (calculate * parseFloat(sumDays)).toFixed(2);
+
+        for (let i = 0; i < resultFinall.length; i++) {
+            resultFinall[i].innerHTML = calculateFinal;
+        }
+
+
+        const installment = document.querySelectorAll(".installment-one");
+        for (let i = 0; i < resultFinall.length; i++) {
+            installment[0].innerHTML = calculateFinal;
+            installment[1].innerHTML = '-';
+            installment[2].innerHTML = calculateFinal;
+            installment[3].innerHTML = '-';
+        }
+
+        const installmentPenny = document.querySelectorAll(".installment-one-penny");
+        for (let i = 0; i < installmentPenny.length; i++) {
+            installmentPenny[i].innerHTML = '-';
+        }
+
+        const dateView = document.querySelector(".info-date");
+        dateView.innerHTML = ("od: " + formatter.format(s) + " do " + formatter.format(e));
+
+        const sumResultDaysView = document.querySelector(".sum-days");
+        sumResultDaysView.innerHTML = sumDays;
 
 
     } else if (enterSold.value > constantValue1 && sumDays < numberOfDaysYear) {
