@@ -49,7 +49,7 @@
 
 
 
-		<div class="categorySection">
+		<!-- <div class="categorySection">
 			<label class="custbox">
 				<input type="checkbox" id="cb_c1" name="cbCategory1" autocomplete="off" onclick="openForm(1);">
 				<span class="checkmark1">B</span>
@@ -106,95 +106,94 @@
 								type="number" oninput='input(this)'>
 						</div>
 					</div>
-				</div>
-				<div class="form-nav-bar">
-					<hr>
-					<input class="submitBtn" type="button" id="btSend1" value="Oblicz opłatę">
-				</div>
-
-
-
-				<h3 class="sectionHeader">Dane wnioskowanych zezwoleń</h3>
-				<div style="overflow-x:auto;">
-					<table class="resTbl">
-						<colgroup>
-							<col style="width:43%;" />
-							<col>
-							<col>
-							<col>
-							<col>
-						</colgroup>
-						<tr>
-							<th>Kategoria</th>
-							<th>Przychód <br />w 2021r.</th>
-							<th>Okres<br />obowiązywania</th>
-							<th>Dni</th>
-							<th>Wartość<br />opłaty</th>
-						</tr>
-						<tr>
-							<td><strong>Kategoria A</strong><br />Napoje zawierające do <strong>4,5% alkoholu</strong>
-								oraz <strong>piwa</strong></td>
-							<td style="text-align:right;" id="resultOne"></td>
-							<td class="infoDate"></td>
-							<td class="days"></td>
-							<td style="text-align:right;"><span class="resultFinall"></span></td>
-						</tr>
-
-						<tr class="sum-row">
-							<td colspan="4" style="text-align:right;">RAZEM: </td>
-							<td style="text-align:right;"><strong class="resultFinall"></strong></td>
-						</tr>
-
-					</table>
-				</div>
-
-
-
-				<h3 class="sectionHeader">Płatność w ratach</h3>
-				<div style="overflow-x:auto;">
-					<table class="resTbl" cellpadding="5" cellspacing="0">
-						<colgroup>
-							<col>
-							<col style="width:19%;" />
-							<col style="width:19%;" />
-							<col style="width:19%;" />
-						</colgroup>
-						<tr>
-							<th>Kategoria</th>
-							<th>Rata I</th>
-							<th>Rata II</th>
-							<th>Rata III</th>
-						</tr>
-
-
-						<tr>
-							<td rowspan="2"><strong>Kategoria A</strong><br />Napoje zawierające do <strong>4,5%
-									alkoholu</strong> oraz <strong>piwa</strong></td>
-							<td class="rateDateCell">
-								<div class="rateDate">31 stycznia</div>
-							</td>
-							<td class="rateDateCell"><span class="rateDate">31 maja</span></td>
-							<td class="rateDateCell">
-								<div class="rateDate">30 września</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="currCell"><span class="installmentOne"></span></td>
-							<td class="currCell"><span class="installmentOne"></span></td>
-							<td class="currCell"><span class="installmentOne"></span></td>
-						</tr>
-
-						<tr class="sum-row">
-							<td class="installmentOne">RAZEM: </td>
-							<td class="installmentOne"></td>
-							<td class="installmentOne"></td>
-							<td class="installmentOne"></td>
-						</tr>
-					</table>
-				</div>
-
-			</div>
+				</div>-->
+		<div class="form-nav-bar">
+			<hr>
+			<input class="submitBtn" type="button" id="btSend" value="Oblicz opłatę">
 		</div>
+
+
+
+		<h3 class="sectionHeader">Dane wnioskowanych zezwoleń</h3>
+		<div style="overflow-x:auto;">
+			<table class="resTbl">
+				<colgroup>
+					<col style="width:43%;" />
+					<col>
+					<col>
+					<col>
+					<col>
+				</colgroup>
+				<tr>
+					<th>Kategoria</th>
+					<th>Przychód <br />w 2021r.</th>
+					<th>Okres<br />obowiązywania</th>
+					<th>Dni</th>
+					<th>Wartość<br />opłaty</th>
+				</tr>
+				<tr>
+					<td><strong>Kategoria A</strong><br />Napoje zawierające do <strong>4,5% alkoholu</strong>
+						oraz <strong>piwa</strong></td>
+					<td style="text-align:right;" id="resultOne"></td>
+					<td class="info-date"></td>
+					<td class="sum-days"></td>
+					<td style="text-align:right;"><span class="show-sum-finall"></span></td>
+				</tr>
+
+				<tr class="sum-row">
+					<td colspan="4" style="text-align:right;">RAZEM: </td>
+					<td style="text-align:right;"><strong class="show-sum-finall"></strong></td>
+				</tr>
+
+			</table>
+		</div>
+
+
+
+		<h3 class="sectionHeader">Płatność w ratach</h3>
+		<div style="overflow-x:auto;">
+			<table class="resTbl" cellpadding="5" cellspacing="0">
+				<colgroup>
+					<col>
+					<col style="width:19%;" />
+					<col style="width:19%;" />
+					<col style="width:19%;" />
+				</colgroup>
+				<tr>
+					<th>Kategoria</th>
+					<th>Rata I</th>
+					<th>Rata II</th>
+					<th>Rata III</th>
+				</tr>
+
+
+				<tr>
+					<td rowspan="2"><strong>Kategoria A</strong><br />Napoje zawierające do <strong>4,5%
+							alkoholu</strong> oraz <strong>piwa</strong></td>
+					<td class="rateDateCell">
+						<div class="rateDate">31 stycznia</div>
+					</td>
+					<td class="rateDateCell"><span class="rateDate">31 maja</span></td>
+					<td class="rateDateCell">
+						<div class="rateDate">30 września</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="currCell"><span class="installment-one"></span></td>
+					<td class="currCell"><span class="installment-one"></span></td>
+					<td class="currCell"><span class="installment-one-penny"></span></td>
+				</tr>
+
+				<tr class="sum-row">
+					<td>RAZEM: </td>
+					<td class="installment-one"></td>
+					<td class="installment-one"></td>
+					<td class="installment-one-penny"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	</div>
 	</div>
 
 
