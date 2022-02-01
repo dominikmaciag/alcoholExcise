@@ -73,9 +73,6 @@ function openForm(n) {
 
 
 
-
-
-
 const enterSold = document.getElementById("incomeVal_c0");
 const resultSold = document.getElementById("resultOne");
 const btn = document.getElementById("btSend");
@@ -112,7 +109,9 @@ btn.addEventListener("click", function () {
 
 
     if (enterSold.value > constantValue1 && sumDays === numberOfDaysYear) {
-        // for the last penny...nana na
+        //console.log("more 37500.00 equal to 365 days");
+
+        // for the last penny...
         let divisibility = (enterSold.value * parseFloat(baseAmount1) / 3).toFixed(2);
         let twoInstallments = parseFloat(divisibility) + parseFloat(divisibility);
         let globalSumPenny = (enterSold.value * parseFloat(baseAmount1) - parseFloat(twoInstallments)).toFixed(2);
@@ -141,10 +140,9 @@ btn.addEventListener("click", function () {
         sumResultDaysView.innerHTML = sumDays;
 
 
-
     } else if (enterSold.value < constantValue1 && sumDays === numberOfDaysYear) {
+        //console.log("less 37500.00 equal to 365 days");
         resultSold.innerHTML = (enterSold.value);
-
         const resultFinall = document.querySelectorAll(".show-sum-finall");
         const installmentPenny = document.querySelectorAll(".installment-one-penny");
         for (let i = 0; i < resultFinall.length && installmentPenny.length; i++) {
@@ -164,11 +162,9 @@ btn.addEventListener("click", function () {
         sumResultDaysView.innerHTML = sumDays;
 
 
-
     } else if (enterSold.value < constantValue1 && sumDays < numberOfDaysYear) {
+        //console.log("less 37500.00 less 365 days");
         resultSold.innerHTML = (enterSold.value);
-
-
         const resultFinall = document.querySelectorAll(".show-sum-finall");
         const calculate = baseAmount1zl / numberOfDaysYear;
         const calculateFinal = (calculate * parseFloat(sumDays)).toFixed(2);
@@ -177,18 +173,17 @@ btn.addEventListener("click", function () {
             resultFinall[i].innerHTML = calculateFinal;
         }
 
-
         const installment = document.querySelectorAll(".installment-one");
         for (let i = 0; i < resultFinall.length; i++) {
             installment[0].innerHTML = calculateFinal;
-            installment[1].innerHTML = '-';
+            installment[1].innerHTML = '0,00';
             installment[2].innerHTML = calculateFinal;
-            installment[3].innerHTML = '-';
+            installment[3].innerHTML = '0,00';
         }
 
         const installmentPenny = document.querySelectorAll(".installment-one-penny");
         for (let i = 0; i < installmentPenny.length; i++) {
-            installmentPenny[i].innerHTML = '-';
+            installmentPenny[i].innerHTML = '0,00';
         }
 
         const dateView = document.querySelector(".info-date");
@@ -199,8 +194,33 @@ btn.addEventListener("click", function () {
 
 
     } else if (enterSold.value > constantValue1 && sumDays < numberOfDaysYear) {
-        console.log("Więcej niż bazowa, mniej niz 365 dni");
+        //console.log("more 37500.00 less 365 days");
+        resultSold.innerHTML = (enterSold.value);
+        let calculator = (enterSold.value * parseFloat(baseAmount1)).toFixed(2)
+        let calculateFinall = (calculator / numberOfDaysYear * parseFloat(sumDays)).toFixed(2);
+
+        const resultFinall = document.querySelectorAll(".show-sum-finall")
+        for (let i = 0; i < resultFinall.length; i++) {
+            resultFinall[i].innerHTML = calculateFinall;
+        }
+
+        const installment = document.querySelectorAll(".installment-one");
+        for (let i = 0; i < installment.length; i++) {
+            installment[0].innerHTML = calculateFinall;
+            installment[1].innerHTML = '0,00';
+            installment[2].innerHTML = calculateFinall;
+            installment[3].innerHTML = '0,00';
+        }
+
+        const installmentPenny = document.querySelectorAll(".installment-one-penny");
+        for (let i = 0; i < installmentPenny.length; i++) {
+            installmentPenny[i].innerHTML = '0,00';
+        }
+
+        const dateView = document.querySelector(".info-date");
+        dateView.innerHTML = ("od: " + formatter.format(s) + " do " + formatter.format(e));
+
+        const sumResultDaysView = document.querySelector(".sum-days");
+        sumResultDaysView.innerHTML = sumDays;
     }
-
-
 }, false);
